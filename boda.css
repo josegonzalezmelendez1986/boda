@@ -1,0 +1,1468 @@
+/* Import Google Fonts - must be at the top of the file */
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+
+/* Global styles */
+:root {
+    --primary-color: #a71d2a;
+    --primary-hover: #d1383f;
+    --secondary-color: #2a4858;
+    --accent-gold: #d4af37;
+    --bg-color: #f9fafb;
+    --accent-pink: #f8d7da;
+    --accent-pink-dark: #e4c1c4;
+    --text-color: #374151;
+    --text-light: #6b7280;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --transition-fast: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    --section-couple: #fff5f5;
+    --section-countdown: #fdf2f8;
+    --section-rsvp: #fff8f1;
+    --section-venue: #f0f7ff;
+    --section-dress: #f7f7ff;
+    --container-width-desktop: 1200px;
+    --container-width-tablet: 90%;
+    --container-width-mobile: 95%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+body::before {
+    content: 'V&J';
+    position: fixed;
+    font-family: 'Pinyon Script', cursive;
+    font-size: 20rem;
+    color: rgba(0, 0, 0, 0.03);
+    z-index: -1;
+    transform: rotate(-30deg);
+    pointer-events: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+@keyframes float {
+    0% {
+        transform: translate(-50%, -50%) rotate(-30deg) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(-30deg) scale(1.05);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-30deg) scale(1);
+    }
+}
+
+body::before {
+    animation: float 20s ease-in-out infinite;
+}
+
+@media screen and (max-width: 768px) {
+    body::before {
+        font-size: 15rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body::before {
+        font-size: 10rem;
+    }
+}
+
+/* Header styling */
+header {
+    position: relative;
+    padding: 2rem 1rem;
+    background-image: url('./src/H1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+h1 {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 6rem;
+    font-family: 'Pinyon Script', cursive !important;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+.header-subtitle {
+    color: var(--primary-color);
+    font-size: 2.7rem;
+    margin: 0.5rem 0 0 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    font-family: 'Pinyon Script', cursive !important;
+}
+
+/* Main container styling */
+.container {
+    width: var(--container-width-desktop);
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: #fff;
+    box-shadow: var(--shadow-md);
+    border-radius: 15px;
+    transition: var(--transition);
+    overflow-x: hidden;
+}
+
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Countdown section */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    max-width: 100%;
+    flex-wrap: wrap; /* Allows items to wrap if needed */
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 1.2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    min-width: 90px; /* Reduced from 100px */
+    margin: 0.5rem;
+}
+
+.countdown-number {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+    color: var(--text-color);
+}
+
+/* Form styling */
+form {
+    margin-top: 20px;
+}
+
+input, button {
+    padding: 12px;
+    margin: 8px;
+    width: 100%;
+    max-width: 300px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: var(--transition);
+}
+
+input {
+    background-color: #f3f4f6;
+    color: var(--text-color);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #fff;
+    box-shadow: var(--shadow-sm);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255,255,255,0.1);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.6s;
+}
+
+button:active::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Images Styling */
+.image-couple, .image-venue {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.image-couple:hover, .image-venue:hover {
+    transform: scale(1.02);
+}
+
+.image-couple::after, .image-venue::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+    pointer-events: none;
+}
+
+/* Dress Code Grid */
+.dress-code-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 15px;
+}
+
+.dress-code-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dress-code-text {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dress-code-image {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: var(--transition-fast);
+}
+
+.dress-code-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    background: linear-gradient(
+        to bottom,
+        transparent 70%,
+        rgba(0,0,0,0.1)
+    );
+    pointer-events: none;
+}
+
+.dress-code-image:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+    filter: brightness(1.05);
+}
+
+/* Footer styling */
+footer {
+    position: relative;
+    text-align: center;
+    padding: 2rem 1rem;
+    background-image: url('./src/H1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Add overlay for text readability */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5); /* Same as header overlay */
+}
+
+footer p {
+    position: relative;
+    z-index: 1; /* Place text above overlay */
+}
+
+footer p:first-child {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color); /* Same as header text color */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+footer p:last-child {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    footer p:first-child {
+        font-size: 1.2rem;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .dress-code-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 4.8rem;
+    }
+    
+    .countdown {
+        gap: 1rem;
+    }
+
+    .countdown-item {
+        min-width: 70px;
+        padding: 1rem;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+    }
+
+    .countdown-label {
+        font-size: 0.8rem;
+    }
+
+    .rsvp-button {
+        padding: 15px 40px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 3.75rem;
+    }
+
+    .header-subtitle {
+        font-size: 1.8rem;
+    }
+}
+
+/* Add smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add selection style */
+::selection {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Enhanced Section Styling */
+section {
+    position: relative;
+    overflow: hidden;
+    margin: 40px 0;
+}
+
+/* Background layer (bottom) */
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--section-bg); /* Your section background color */
+    z-index: 1;
+}
+
+/* Watermark layer (middle) */
+section::after,
+section:nth-child(even)::after,
+section:nth-child(2)::after, /* Specifically target countdown section */
+.countdown-section::after {
+    content: 'V&J';
+    position: absolute;
+    font-family: 'Pinyon Script', cursive;
+    font-size: 15rem;
+    color: rgba(0, 0, 0, 0.03);
+    z-index: 2;
+    pointer-events: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg) !important; /* Force consistent rotation */
+    animation: sectionFloat 20s ease-in-out infinite !important; /* Force consistent animation */
+}
+
+/* Content layer (top) */
+section > * {
+    position: relative;
+    z-index: 3;
+}
+
+/* Single animation for all sections */
+@keyframes sectionFloat {
+    0% {
+        transform: translate(-50%, -50%) rotate(-30deg) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(-30deg) scale(1.05);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-30deg) scale(1);
+    }
+}
+
+/* Remove any potential overrides */
+section:nth-child(even)::after {
+    transform: translate(-50%, -50%) rotate(-30deg) !important;
+    animation: sectionFloat 20s ease-in-out infinite !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    section::after {
+        font-size: 12rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    section::after {
+        font-size: 8rem;
+    }
+}
+
+/* Couple Section */
+section:first-of-type {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    background: linear-gradient(to bottom, 
+        #fff 0%,
+        var(--section-couple) 15%,
+        var(--section-couple) 85%,
+        var(--section-countdown) 100%
+    );
+}
+
+/* Countdown Section */
+section:nth-of-type(2) {
+    background: linear-gradient(to bottom,
+        var(--section-countdown) 0%,
+        var(--section-countdown) 85%,
+        var(--section-venue) 100%
+    );
+    margin-top: -2rem;
+    padding-top: 6rem;
+    margin-bottom: 20px;
+}
+
+/* Venue Section */
+section:nth-of-type(3) {
+    background: linear-gradient(to bottom,
+        var(--section-venue) 0%,
+        var(--section-venue) 85%,
+        var(--section-dress) 100%
+    );
+    margin-top: -2rem;
+    padding-top: 6rem;
+}
+
+/* Dress Code Section */
+section:nth-of-type(4) {
+    background: linear-gradient(to bottom,
+        var(--section-dress) 0%,
+        var(--section-dress) 85%,
+        var(--section-rsvp) 100%
+    );
+    margin-top: 0rem;
+    padding-top: 6rem;
+}
+
+/* RSVP Section */
+section:nth-of-type(5) {
+    background: linear-gradient(to bottom,
+        var(--section-rsvp) 0%,
+        var(--section-rsvp) 85%,
+        var(--bg-color) 100%
+    );
+    margin-top: -2rem;
+    padding-top: 6rem;
+}
+
+/* Update responsive styles */
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 1.5rem;
+    }
+    
+    section:not(:first-of-type) {
+        margin-top: -1.5rem;
+        padding-top: 4.5rem;
+    }
+}
+
+/* Section headings enhancement */
+section h2, section h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after, section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--accent-gold), 
+        transparent
+    );
+}
+
+/* Enhanced container styling */
+.container {
+    background: transparent;
+    box-shadow: none;
+    padding: 0 20px;
+}
+
+.container:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Add subtle pattern overlay to sections */
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+/* RSVP Section styling */
+section:has(.rsvp-button) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* RSVP Button styling */
+.rsvp-button {
+    background: linear-gradient(45deg, 
+        var(--primary-color), 
+        var(--primary-hover) 50%,
+        var(--primary-color)
+    );
+    background-size: 200% auto;
+    padding: 18px 55px;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(167, 29, 42, 0.25);
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    margin-top: -10px;
+}
+
+.rsvp-button:hover {
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(167, 29, 42, 0.3);
+}
+
+.rsvp-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(167, 29, 42, 0.2);
+}
+
+.rsvp-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.rsvp-button:hover::before {
+    left: 100%;
+}
+
+/* Animation classes */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add subtle animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.countdown-item:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.countdown-item:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.countdown-item:nth-child(4) {
+    animation-delay: 3s;
+}
+
+/* Add scroll progress indicator */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, 
+        var(--primary-color), 
+        var(--accent-gold)
+    );
+    transform-origin: 0%;
+    z-index: 1000;
+}
+
+/* Container responsiveness */
+.container {
+    width: var(--container-width-desktop);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Enhanced responsive styles */
+@media screen and (max-width: 1200px) {
+    .container {
+        width: var(--container-width-tablet);
+    }
+
+    .countdown {
+        gap: 1.5rem;
+    }
+
+    .countdown-item {
+        min-width: 85px;
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: var(--container-width-mobile);
+        padding: 0 15px;
+    }
+
+    /* Header adjustments */
+    header {
+        min-height: 100px;
+        padding: 1.5rem 1rem;
+    }
+
+    h1 {
+        font-size: 4.8rem;
+    }
+
+    .header-subtitle {
+        font-size: 2.25rem;
+    }
+
+    /* Section adjustments */
+    section {
+        padding: 3rem 1rem;
+        margin: 0;
+        border-radius: 20px;
+    }
+
+    /* Countdown adjustments */
+    .countdown {
+        gap: 10px;
+        padding: 0.5rem;
+        margin: 1rem auto;
+    }
+
+    .countdown-item {
+        min-width: unset;
+        width: calc(50% - 20px);
+        padding: 0.8rem;
+        margin: 5px;
+    }
+
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+
+    .countdown-label {
+        font-size: 0.75rem;
+    }
+
+    /* Image adjustments */
+    .image-couple, .image-venue {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 1rem 0;
+    }
+
+    /* Dress code adjustments */
+    .dress-code-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px;
+        margin: 15px auto;
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .dress-code-image {
+        height: 200px;
+        width: 100%;
+    }
+
+    /* RSVP button adjustments */
+    .rsvp-button {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+        width: auto;
+        min-width: 200px;
+        max-width: 80%;
+        margin: 1rem auto;
+        white-space: nowrap;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 380px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .countdown-item {
+        padding: 0.6rem;
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+
+    .dress-code-image {
+        height: 180px;
+    }
+
+    .rsvp-button {
+        padding: 10px 25px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Fix for notched phones */
+@supports (padding: max(0px)) {
+    .container {
+        padding-left: max(15px, env(safe-area-inset-left));
+        padding-right: max(15px, env(safe-area-inset-right));
+    }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .countdown-item {
+        backdrop-filter: none;
+        background: rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Prevent rubber-band scroll effect */
+    html {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Ensure images don't overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for any potential overflow issues */
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Ensure text remains readable */
+p, h2, h3 {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+/* Landscape mode adjustments */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .countdown {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .dress-code-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .rsvp-button {
+        border: 2px solid var(--primary-color);
+    }
+
+    .countdown {
+        break-inside: avoid;
+    }
+}
+
+/* High-contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #800000;
+        --text-color: #000000;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Responsive adjustments for dress code */
+@media screen and (min-width: 1200px) {
+    .dress-code-grid {
+        max-width: 800px; /* Larger on big screens */
+    }
+
+    .dress-code-image {
+        height: 300px; /* Taller images on big screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dress-code-grid {
+        gap: 20px;
+        padding: 10px;
+    }
+    
+    .dress-code-text {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dress-code-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dress-code-text {
+        text-align: center;
+    }
+}
+
+/* Landscape mode optimization */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .dress-code-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .dress-code-image {
+        height: 180px; /* Shorter in landscape to prevent scrolling */
+    }
+}
+
+/* High-resolution screens */
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) {
+    .dress-code-image {
+        transform: translateZ(0); /* Helps with image rendering on retina displays */
+    }
+}
+
+/* Prevent image stretching */
+.dress-code-image {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+}
+
+/* Photo Sharing Section */
+.photo-sharing {
+    background: linear-gradient(to bottom,
+        var(--section-dress) 0%,
+        var(--section-dress) 85%,
+        var(--section-rsvp) 100%
+    );
+}
+
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-hover));
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 500;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.share-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.share-icon {
+    font-size: 1.4em;
+    transition: transform 0.3s ease;
+}
+
+.share-button:hover .share-icon {
+    transform: scale(1.1);
+}
+
+.photo-tip {
+    color: var(--text-light);
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .share-button {
+        padding: 14px 28px;
+        font-size: 0.9em;
+    }
+
+    .share-icon {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .share-button {
+        padding: 12px 24px;
+        width: 80%;
+        justify-content: center;
+    }
+}
+
+/* Gift Section Styling */
+.gift-section {
+    background: linear-gradient(to bottom,
+        var(--section-dress) 0%,
+        var(--bg-color) 100%
+    );
+    text-align: center;
+}
+
+.gift-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gift-message {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.gift-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.gift-option {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gift-option:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.gift-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.gift-option h4 {
+    color: var(--primary-color);
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.gift-option p {
+    margin: 0.5rem 0;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.bank-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.bank-details p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .gift-options {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .gift-message {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .gift-option {
+        padding: 1.5rem;
+    }
+
+    .gift-icon {
+        font-size: 2rem;
+    }
+}
+
+/* Animation for gift options */
+@keyframes giftAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gift-option {
+    animation: giftAppear 0.5s ease forwards;
+}
+
+.gift-option:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+/* Couple Section H2 styling */
+section h2 {
+    color: var(--primary-color);
+    font-family: 'Crimson Text', 'Times New Roman', serif !important;
+    font-size: 2.4rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    section h2 {
+        font-size: 2rem;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    section h2 {
+        font-size: 1.6rem;
+        padding: 0 15px;
+    }
+}
+
+/* Multiple watermarks */
+.watermark-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.watermark {
+    position: absolute;
+    font-family: 'Pinyon Script', cursive;
+    color: rgba(0, 0, 0, 0.03);
+    white-space: nowrap;
+}
+
+.watermark:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    font-size: 15rem;
+    transform: rotate(-25deg);
+}
+
+.watermark:nth-child(2) {
+    bottom: 30%;
+    right: 15%;
+    font-size: 12rem;
+    transform: rotate(-15deg);
+}
+
+.watermark:nth-child(3) {
+    top: 50%;
+    left: 50%;
+    font-size: 18rem;
+    transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+/* Section watermark styling */
+section {
+    position: relative;
+    overflow: hidden; /* Contain the watermark */
+}
+
+section::before {
+    content: 'V&J';
+    position: absolute;
+    font-family: 'Pinyon Script', cursive;
+    font-size: 15rem;
+    color: rgba(0, 0, 0, 0.03);
+    z-index: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+/* Add subtle animation for each section */
+@keyframes sectionFloat {
+    0% {
+        transform: translate(-50%, -50%) rotate(-30deg) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(-30deg) scale(1.05);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-30deg) scale(1);
+    }
+}
+
+section::before {
+    animation: sectionFloat 20s ease-in-out infinite;
+}
+
+/* Ensure section content stays above watermark */
+section > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    section::before {
+        font-size: 12rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    section::before {
+        font-size: 8rem;
+    }
+}
+
+/* Optional: Alternate rotation for variety */
+section:nth-child(even)::before {
+    transform: translate(-50%, -50%) rotate(30deg);
+}
+
+section:nth-child(even)::before {
+    animation: sectionFloatAlt 20s ease-in-out infinite;
+}
+
+@keyframes sectionFloatAlt {
+    0% {
+        transform: translate(-50%, -50%) rotate(30deg) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(30deg) scale(1.05);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(30deg) scale(1);
+    }
+}
+
+/* Venue section styling */
+section strong {
+    font-weight: 700;
+    color: var(--primary-color); /* Optional: makes it match your theme color */
+}
+
+/* Venue section link styling */
+.venue-link {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensure it can be layered */
+    z-index: 10; /* Bring it to the front */
+}
+
+.venue-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: var(--primary-hover);
+}
+
+/* Add icon if desired */
+.venue-link::before {
+    content: '📍'; /* Map pin emoji */
+    margin-right: 8px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .dress-code-grid {
+        gap: 20px;
+        padding: 10px; /* Reduced padding for smaller screens */
+    }
+    
+    .dress-code-image {
+        max-height: 200px; /* Further reduce max height on smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dress-code-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dress-code-image {
+        max-height: 150px; /* Further reduce max height on mobile */
+    }
+}
+
+/* Confirm Button styling */
+.confirm-button {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-hover));
+    color: white;
+    text-decoration: none;
+    padding: 18px 55px;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(167, 29, 42, 0.25);
+    margin-top: -15px; /* Adjust this value to move the button up */
+    position: relative; /* Ensure it can be positioned without affecting others */
+}
+
+/* Hover effect */
+.confirm-button:hover {
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(167, 29, 42, 0.3);
+}
+
+/* Highlighted footer text */
+.footer-highlight {
+    font-family: Arial, sans-serif; /* Change back to a standard font */
+    font-size: 3rem; /* Increased size */
+    color: var(--primary-color); /* Match your theme color */
+    margin: 0; /* Remove default margin */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Optional: add shadow for readability */
+}
+
+footer p:last-child {
+    font-size: 0.9rem; /* Keep copyright text smaller */
+    color: var(--text-light); /* Optional: adjust color */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .footer-highlight {
+        font-size: 2.5rem; /* Adjust for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer-highlight {
+        font-size: 2rem; /* Further adjust for mobile */
+    }
+}

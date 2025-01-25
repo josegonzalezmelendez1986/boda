@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Invitación de Boda</title>
+    <link rel="stylesheet" href="boda.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="watermark-container">
+        <div class="watermark">V&J</div>
+        <div class="watermark">V&J</div>
+        <div class="watermark">V&J</div>
+    </div>
+
+<header>
+    <div class="header-content">
+        <h1>¡Nos casamos!</h1>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Combined Couple Section -->
+    <section>
+        <h2>Y estaríamos muy felices de tener tu compañía en este momento tan especial para nuestra vida</h2>
+        <img src="./src/foto1.jpg" alt="Pareja de novios" class="image-couple">
+    </section>
+
+    <!-- Countdown Section -->
+    <section>
+        <p>Únete a nosotros el <strong>Domingo 2 de Noviembre, 2025 a las 16:00h</strong></p>
+        <h3>Cuenta regresiva para el Gran Día</h3>
+        <div class="countdown" id="countdown"></div>
+    </section>
+
+    <!-- Venue Section -->
+    <section>
+        <h3>Ubicación</h3>
+        <p>El evento se llevará a cabo en: <strong>Villa del Lago</strong>, La Garita de Alajuela</p>
+        <img src="./src/venue.jpg" alt="Lugar del evento" class="image-venue">
+        <a href="https://maps.app.goo.gl/wwiM2uR74h3XrTK66" target="_blank" class="venue-link">Ver en Google Maps</a>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section>
+        <h3>Código de Vestimenta</h3>
+        <div class="dress-code-grid">
+            <div class="dress-code-item">
+                <p class="dress-code-text">Vestimenta Formal Hombres</p>
+                <img src="./src/V1.jpg" alt="Vestimenta formal hombres" class="dress-code-image">
+            </div>
+            <div class="dress-code-item">
+                <p class="dress-code-text">Vestimenta Formal Mujeres</p>
+                <img src="./src/V2.jpg" alt="Vestimenta formal mujeres" class="dress-code-image">
+            </div>
+            <div class="dress-code-item">
+                <p class="dress-code-text">Colores No Permitidos</p>
+                <img src="./src/V3.jpg" alt="Colores no permitidos" class="dress-code-image">
+            </div>
+            <div class="dress-code-item">
+                <p class="dress-code-text">Vestimenta NO Permitida</p>
+                <img src="./src/V4.jpg" alt="Vestimenta NO permitida" class="dress-code-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- After Dress Code Section and before Photo Sharing Section -->
+    <section class="gift-section">
+        <h3>Regalo de Bodas</h3>
+        <div class="gift-content">
+            <p class="gift-message">Tu presencia es nuestro mejor regalo, si estabas pensando en darnos otro obsequio, agradecemos alguna de las siguientes opciones:</p>
+            
+            <div class="gift-options">
+                <div class="gift-option">
+                    <span class="gift-icon">💝</span>
+                    <h4>Sobre para dinero en Efectivo</h4>
+                    <p>Habrá un buzón disponible en la recepción</p>
+                </div>
+                
+                <div class="gift-option">
+                    <span class="gift-icon">🏦</span>
+                    <h4>Transferencia Bancaria</h4>
+                    <div class="bank-details">
+                        <p>Banco: BAC San José</p>
+                        <p>IBAN: CR</p>
+                        <p>Titular: Jose Gonzalez</p>
+                        <p>SINPE: 70178417</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Sharing Section -->
+    <section class="photo-sharing">
+        <h3>Captura los mejores momentos</h3>
+        <p>Y compártelos con nosotros haciendo clic en el siguiente enlace</p>
+        <a href="https://onelifesocial.page.link/uSvs" target="_blank" class="share-button">
+            <span class="share-icon">📸</span>
+            Álbum Compartido
+        </a>
+    </section>
+
+    <!-- RSVP Section -->
+    <section>
+        <h3>Por favor confirma tu Asistencia</h3>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScxbnq0GGRL5ED3UoS7QUCJxTZDWMsjX8C_9EqyXcdTXYxP-Q/viewform?usp=header" target="_blank" class="rsvp-button">
+            Confirmo
+        </a>
+    </section>
+</main>
+
+<footer>
+    <p class="footer-highlight">¡TE ESPERAMOS!</p>
+    <p>Todos los derechos reservados &copy; 2025</p>
+</footer>
+
+<script>
+    // Set the wedding date
+    var weddingDate = new Date("November 2, 2025 16:00:00").getTime();
+
+    // Update the countdown every second
+    var countdownFunction = setInterval(function() {
+        var now = new Date().getTime();
+        var timeLeft = weddingDate - now;
+
+        var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = days + " días, " + hours + " horas, "
+        + minutes + " minutos, " + seconds + " segundos";
+
+        if (timeLeft < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown").innerHTML = "¡Es el día de la boda!";
+        }
+    }, 1000);
+</script>
+
+<script src="boda.js"></script>
+</body>
+</html>
