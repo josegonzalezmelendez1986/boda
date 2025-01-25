@@ -1,1 +1,1 @@
-Wedding invitatio
+Wedding invitation
